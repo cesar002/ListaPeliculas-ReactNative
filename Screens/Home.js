@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Button} from 'react-native';
 
-const util = require('util');
-
 
 const styles = StyleSheet.create({
     Conteiner:{
@@ -31,7 +29,7 @@ class Titulo extends Component{
 
 class Botones extends Component{
     render(){
-        var {navigate} = this.props.navigation;
+        var {navigate} = this.props.nav;
         return(
             <View>
                 <View style={styles.ContenedorBoton}>
@@ -45,7 +43,9 @@ class Botones extends Component{
                 </View>
                 <View style={styles.ContenedorBoton}>
                     <Button
-                        onPress={()=>{}}
+                        onPress={
+                            ()=>navigate("AddPeliS", {})
+                        }
                         title="Agregar nueva pelicula"
                         color="#48C9B0"
                     />
@@ -64,7 +64,7 @@ export default class Home extends Component{
         return(
             <View style={styles.Conteiner}>
                 <Titulo />
-                <Botones />
+                <Botones nav={this.props.navigation} />
             </View>
         );
     }
